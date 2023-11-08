@@ -1,0 +1,4 @@
+truststore:
+  algorithm: RS256
+  jwt-ttl: 360
+  bank: 4201
