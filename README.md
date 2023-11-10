@@ -5,7 +5,9 @@ Repository containing example code for different authentication methods.
 Using Federated authentication you need to send an assertion (jwt) in the request together with oauth credentials.
 When using federated authentication you sign the assertion with a private key, and you have to provide an jwks endpoint with the corresponding public key, for validation of the assertion.
 
-Example of how to create a signed jwt to use as assertion. This example takes bank and nnin as parameters, and put them in the jwt as claims. Bank is only required if customer has multiple bankrelations. 
+Example of how to create a signed jwt to use as assertion. This example takes bank and nnin as parameters, and put them in the jwt as claims. The different types of session requires different claims.
+For example a customer session requires the claim "nnin". But a system session requires a username instead. The spesific need of claims for a partner to send will be set during the agreement and configuration phase.
+The claim "bank" is only required if the integration includes more than one bank.
 The assertion provider uses the `io.jsonwebtoken` library for creating and signing the jwt.
 Explanation of the different claims can be found [here](https://tools.ietf.org/html/rfc7519#section-4.1)
 ```kotlin
